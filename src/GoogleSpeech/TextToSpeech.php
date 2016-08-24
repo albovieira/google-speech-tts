@@ -5,18 +5,30 @@ namespace GoogleSpeech;
 use GuzzleHttp\Client;
 
 
+/**
+ * Class TextToSpeech
+ * @package GoogleSpeech
+ */
 class TextToSpeech
 {
     private $client;
     private $file;
     private $lang;
 
+    /**
+     * TextToSpeech constructor.
+     */
     public function __construct()
     {
         $this->client = new Client();
         $this->file = new File();
     }
-    
+
+    /**
+     * @param $text
+     * @return bool
+     * @throws \Exception
+     */
     public function download($text){
 
         if(!$this->lang){
@@ -54,21 +66,37 @@ class TextToSpeech
 
     }
 
+    /**
+     * @param $lang
+     * @return $this
+     */
     public function withLanguage($lang){
         $this->lang = $lang;
         return $this;
     }
 
+    /**
+     * @param $path
+     * @return $this
+     */
     public function inPath($path){
         $this->file->setPath($path);
         return $this;
     }
 
+    /**
+     * @param $name
+     * @return $this
+     */
     public function withName($name){
         $this->file->setName($name);
         return $this;
     }
 
+    /**
+     * @param $text
+     * @return string
+     */
     private function mountUrl($text){
 
         $qParams = [

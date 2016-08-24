@@ -3,6 +3,10 @@
 namespace GoogleSpeech;
 
 
+/**
+ * Class File
+ * @package GoogleSpeech
+ */
 class File
 {
     private $path;
@@ -15,6 +19,9 @@ class File
         $this->name = 'audio';
     }
 
+    /**
+     * @return string
+     */
     public function getCompletePath(){
         return $this->path . DIRECTORY_SEPARATOR . $this->name .'.' . $this->type;
     }
