@@ -1,6 +1,6 @@
 {
-    "name": "albo-vieira/google-speech",
-    "description": "Read an audio and write it",
+    "name": "albo-vieira/google-speech-tts",
+    "description": "A wrapper to google translate that generate a audio from a text.",
     "require": {
         "guzzlehttp/guzzle": "^6.1"
     },
