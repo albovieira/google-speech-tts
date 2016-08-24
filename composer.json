@@ -1,0 +1,20 @@
+{
+    "name": "albo-vieira/google-speech",
+    "description": "Read an audio and write it",
+    "require": {
+        "guzzlehttp/guzzle": "^6.1"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Albo Vieira",
+            "email": "albovieira@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload":{
+        "psr-4" : {
+            "GoogleSpeech\\": "src/"
+        }
+    }
+}
