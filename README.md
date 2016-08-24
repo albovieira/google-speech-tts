@@ -1,6 +1,6 @@
 # google-speech-tts
 
-A wrapper to google translate that generate a audio from a text.
+A wrapper of the Google Translate that generates an audio from a given text.
 
 ```php
 use GoogleSpeech\TextToSpeech;
