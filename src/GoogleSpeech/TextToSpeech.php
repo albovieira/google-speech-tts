@@ -11,6 +11,9 @@ use GuzzleHttp\Client;
  */
 class TextToSpeech
 {
+
+    const GOOGLE_TEXT_TO_SPEECH_URL = "http://translate.google.com/translate_tts?";
+
     private $client;
     private $file;
     private $lang;
@@ -42,10 +45,20 @@ class TextToSpeech
             throw new \Exception("Text doesn't informed");
         }
 
-        $path = $this->file->getCompletePath();
+        $path = $this->file->getPath();
+        if (!is_dir($path)) {
+            $created = mkdir($path,0755,true);
+            if(!$created){
+                throw new \Exception("Can't create a folder with the path given");
+            }
+        }
+
         $pathInfo = pathinfo($path);
         if (!is_writable($pathInfo['dirname'])) {
-            chmod($pathInfo['dirname'], 0755);
+            $permission = chmod($pathInfo['dirname'], 0755);
+            if(!$permission){
+                throw new \Exception("Can't create a folder without permission to do it");
+            }
         }
 
         $url = $this->mountUrl($text);
@@ -55,7 +68,7 @@ class TextToSpeech
                 'User-Agent'=> 'stagefright/1.2 (Linux;Android 5.0)',
                 'Content-type' => 'audio/mpeg'
             ],
-            'save_to' => $path
+            'save_to' => $this->file->getCompletePath()
         ]);
 
         if($response->getStatusCode() == 200){
@@ -106,7 +119,7 @@ class TextToSpeech
             'tl' => $this->lang
         ];
 
-        return GOOGLE_TEXT_TO_SPEECH_URL . http_build_query($qParams);
+        return self::GOOGLE_TEXT_TO_SPEECH_URL . http_build_query($qParams);
     }
 
 }
