@@ -3,7 +3,8 @@
 A wrapper of the Google Translate that generates an audio from a given text.
 
 ```
-composer require albo-vieira/google-speech-tts && install
+composer require albo-vieira/google-speech-tts dev-master
+
 ```
 
 
