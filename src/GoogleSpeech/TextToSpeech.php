@@ -53,14 +53,6 @@ class TextToSpeech
             }
         }
 
-        $pathInfo = pathinfo($path);
-        if (!is_writable($pathInfo['dirname'])) {
-            $permission = chmod($pathInfo['dirname'], 0755);
-            if(!$permission){
-                throw new \Exception("Can't create a folder without permission to do it");
-            }
-        }
-
         $url = $this->mountUrl($text);
         $response = $this->client->get($url,[
             'headers' => [
