@@ -37,10 +37,9 @@ class TextToSpeech
         if(!$this->lang){
             throw new \Exception("Language doesn't informed");
         }
-        if(!$this->file){
+        if(!$this->file->getPath()){
             throw new \Exception("Path doesn't informed");
         }
-
         if(!$text){
             throw new \Exception("Text doesn't informed");
         }
@@ -64,7 +63,7 @@ class TextToSpeech
         ]);
 
         if($response->getStatusCode() == 200){
-            return true;
+           return true;
         }
 
         throw new \Exception('Something bad');
@@ -99,10 +98,18 @@ class TextToSpeech
     }
 
     /**
+     *
+     * @return string
+     */
+    public function getCompletePath(){
+        return $this->file->getCompletePath() ;
+    }
+
+    /**
      * @param $text
      * @return string
      */
-    private function mountUrl($text){
+    public function mountUrl($text){
 
         $qParams = [
             'ie' => 'UTF-8',
