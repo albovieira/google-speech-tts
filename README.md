@@ -14,8 +14,7 @@ use GoogleSpeech\TextToSpeech;
 $speech = new TextToSpeech();
 $speech
     ->withLanguage('en-us')
-    ->inPath('../audios')
-;
+    ->inPath('../audios');
 
 for($i=0;$i<10;$i++){
     $speech->withName('output' . $i);
