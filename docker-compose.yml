@@ -3,9 +3,9 @@ web:
     restart: always
     ports:
         - "8080:80" # web
-        - "2222:22" # ssh
-        - "35730:35729" # live reload
-        - "9876:9876" # karma server
+       # - "2222:22" # ssh
+       # - "35730:35729" # live reload
+       # - "9876:9876" # karma server
     environment:
       XDEBUG_CONFIG: "remote_host={ip}"
       PHP_IDE_CONFIG: "serverName={app}"

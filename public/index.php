@@ -1,6 +1,5 @@
 <?php
 require_once "../bootstrap.php";
-require_once "../config.php";
 
 use GoogleSpeech\TextToSpeech;
 
@@ -12,4 +11,6 @@ $speech
 for($i=0;$i<10;$i++){
     $speech->withName('output' . $i);
     $speech->download('I would try something like that ' . $i);
+    
+    echo 'File generated:' . $speech->getCompletePath() . '<br>';
 }
