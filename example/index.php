@@ -1,6 +1,5 @@
 <?php
 require_once "../bootstrap.php";
-require_once "../config.php";
 
 use GoogleSpeech\TextToSpeech;
 
