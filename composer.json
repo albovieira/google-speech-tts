@@ -2,7 +2,7 @@
     "name": "albo-vieira/google-speech-tts",
     "description": "A wrapper to google translate that generate a audio from a text.",
     "require": {
-        "guzzlehttp/guzzle": "^6.1"
+        "guzzlehttp/guzzle": "^6.3"
     },
     "license": "MIT",
     "authors": [
@@ -14,7 +14,7 @@
     "minimum-stability": "dev",
     "autoload":{
         "psr-4" : {
-            "GoogleSpeech\\": "src/"
+            "GoogleSpeech\\": "src/GoogleSpeech"
         }
     }
 }
