@@ -1,9 +1,9 @@
 # google-speech-tts
 
-A wrapper of the Google Translate that generates an audio from a given text.
+A Google Translate wrapper that generates an audio from a given text.
 
 ```
-composer require albo-vieira/google-speech-tts dev-dev
+composer require albo-vieira/google-speech-tts dev-master
 
 ```
 
